@@ -26,13 +26,17 @@ print("\nTotal number: ", len(names))
 # ADD new technician
 # >>>>>>>>>>>>>>>>>>
 name = input("Enter a new person: ").strip()
-title = input("Enter a title: ").strip()
+role = input("Enter a title: ").strip()
 years = input("Enter the years of experience: ").strip()
 
 if name in  names:
         print("That name is already in the database.")
 else:
         names.append(name)
-        roles.append(title)
+        roles.append(role)
         years_experience.append(years)
+with open("staff.txt", "w") as file:
+    for name, role, years in zip(names, roles, years_experience):
+        file.write(f" {name}, {role}, {years} \n")
+        print("New person: ", name,"-" "Role: ", role,"-" "Years Experience: ", years)
         print("Book added successfully.")
