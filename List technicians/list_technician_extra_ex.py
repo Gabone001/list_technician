@@ -56,4 +56,4 @@ else:
     with open("staff.txt", "w") as file:
         for name, role, years in zip(names, roles, years_experience):
             file.write(f" {name}, {role}, {years} \n")
-    print("Book deleted successfully.")
+    print("Book deleted successfully. ")
