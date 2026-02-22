@@ -21,3 +21,18 @@ print("--------------------------------------------------")
 for name, role, years in zip(names, roles, years_experience):
   print(f"{name:<20} | {role:<28} | {years:>5}")
 print("\nTotal number: ", len(names))
+
+# >>>>>>>>>>>>>>>>>>
+# ADD new technician
+# >>>>>>>>>>>>>>>>>>
+name = input("Enter a new person: ").strip()
+title = input("Enter a title: ").strip()
+years = input("Enter the years of experience: ").strip()
+
+if name in  names:
+        print("That name is already in the database.")
+else:
+        names.append(name)
+        roles.append(title)
+        years_experience.append(years)
+        print("Book added successfully.")
