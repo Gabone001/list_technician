@@ -17,4 +17,4 @@
  Olena Kovalenko, System Administrator, 6 
  Agnieszka Zielinska, IT Support Technician, 2 
  Ronan Fitzgerald, Service Desk Technician, 3 
- Andriy Melnyk, IT Support Analyst, 3,
+ Andriy Melnyk, IT Support Analyst, 3

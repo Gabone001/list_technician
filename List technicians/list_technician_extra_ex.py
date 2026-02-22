@@ -47,7 +47,7 @@ print("\nTotal number: ", len(names))
 name = input("Enter a person that left: ").strip()
 
 if name not in  names:
-        print("That name is not in the database.")
+        print("That name is not in the database. ")
 else:
     index = names.index(name)
     del names[index]
