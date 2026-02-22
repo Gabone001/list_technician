@@ -22,21 +22,38 @@ for name, role, years in zip(names, roles, years_experience):
   print(f"{name:<20} | {role:<28} | {years:>5}")
 print("\nTotal number: ", len(names))
 
-# >>>>>>>>>>>>>>>>>>
-# ADD new technician
-# >>>>>>>>>>>>>>>>>>
-name = input("Enter a new person: ").strip()
-role = input("Enter a title: ").strip()
-years = input("Enter the years of experience: ").strip()
+# # >>>>>>>>>>>>>>>>>>
+# # ADD new technician
+# # >>>>>>>>>>>>>>>>>>
+# name = input("Enter a new person: ").strip()
+# role = input("Enter a title: ").strip()
+# years = input("Enter the years of experience: ").strip()
+#
+# if name in  names:
+#         print("That name is already in the database.")
+# else:
+#         names.append(name)
+#         roles.append(role)
+#         years_experience.append(years)
+# with open("staff.txt", "w") as file:
+#     for name, role, years in zip(names, roles, years_experience):
+#         file.write(f" {name}, {role}, {years} \n")
+#         print("New person: ", name,"-" "Role: ", role,"-" "Years Experience: ", years)
+#         print("Book added successfully.")
 
-if name in  names:
-        print("That name is already in the database.")
+# >>>>>>>>>>>>>>>>>>
+# Delete a technician
+# >>>>>>>>>>>>>>>>>>
+name = input("Enter a person that left: ").strip()
+
+if name not in  names:
+        print("That name is not in the database.")
 else:
-        names.append(name)
-        roles.append(role)
-        years_experience.append(years)
-with open("staff.txt", "w") as file:
-    for name, role, years in zip(names, roles, years_experience):
-        file.write(f" {name}, {role}, {years} \n")
-        print("New person: ", name,"-" "Role: ", role,"-" "Years Experience: ", years)
-        print("Book added successfully.")
+    index = names.index(name)
+    del names[index]
+    del roles[index]
+    del years_experience[index]
+    with open("staff.txt", "w") as file:
+        for name, role, years in zip(names, roles, years_experience):
+            file.write(f" {name}, {role}, {years} \n")
+    print("Book deleted successfully.")
