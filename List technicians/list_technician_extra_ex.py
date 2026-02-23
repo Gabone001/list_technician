@@ -103,8 +103,18 @@ print("\nTotal number: ", len(names))
 # Exercise 5- Average, the highest and the lowest years of experience.
 # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
-average = sum(years_experience) / len(years_experience)
-print(f"Average years experience: {average}")
-print(max(years_experience))
-print(min(years_experience))
+# average = sum(years_experience) / len(years_experience)
+# print(f"Average years experience: {average}")
+# print(max(years_experience))
+# print(min(years_experience))
 
+# >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+# Exercise 6- Find the longest name.
+# >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+longest_name = max(names, key=len)
+length = len(longest_name)
+
+print("Longest Technician Name Result: ")
+print(f"Longest name: {longest_name}")
+print(f"Number of characters: {length}")
