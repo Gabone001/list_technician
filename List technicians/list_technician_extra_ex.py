@@ -167,40 +167,51 @@ print("\nTotal number: ", len(names))
 # Exercise 9 - report generation.
 # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
-# 1. Total technicians
-total_techs = len(names)
+# # 1. Total technicians
+# total_techs = len(names)
+#
+# # 2. Average years of experience
+# average_experience = sum(years_experience) / total_techs
+#
+# # 3. Longest technician name
+# longest_name = max(names, key=len)
+# longest_name_length = len(longest_name)
+#
+# # 4. Categorization counts
+# junior = 0
+# mid = 0
+# senior = 0
+#
+# for years in years_experience:
+#     if years < 3:
+#         junior += 1
+#     elif 3 <= years <= 6:
+#         mid += 1
+#     else:
+#         senior += 1
+#
+# # 5. Write report to file
+# with open("report.txt", "w") as report:
+#     report.write("IT TECHNICIAN SUMMARY REPORT\n")
+#     report.write("-----------------------------------\n")
+#     report.write(f"Total number of technicians: {total_techs}\n")
+#     report.write(f"Average experience: {average_experience:.2f} years\n")
+#     report.write(f"Technician with the longest name: {longest_name}\n")
+#     report.write(f"Length of longest name: {longest_name_length} characters\n")
+#     report.write("\nExperience categories:\n")
+#     report.write(f"  Junior (<3 years): {junior}\n")
+#     report.write(f"  Mid-level (3–6 years): {mid}\n")
+#     report.write(f"  Senior (>6 years): {senior}\n")
+#
+# print("\nReport successfully generated in 'report.txt'.")
 
-# 2. Average years of experience
-average_experience = sum(years_experience) / total_techs
+# >>>>>>>>>>>>>>>>>>>>>>>>>>>
+# Exercise 10 - saving edits.
+# >>>>>>>>>>>>>>>>>>>>>>>>>>>
 
-# 3. Longest technician name
-longest_name = max(names, key=len)
-longest_name_length = len(longest_name)
 
-# 4. Categorization counts
-junior = 0
-mid = 0
-senior = 0
+with open("staff.txt", "w") as file:
+    for name, role, years in zip(names, roles, years_experience):
+        file.write(f"{name}, {role}, {years}\n")
 
-for years in years_experience:
-    if years < 3:
-        junior += 1
-    elif 3 <= years <= 6:
-        mid += 1
-    else:
-        senior += 1
-
-# 5. Write report to file
-with open("report.txt", "w") as report:
-    report.write("IT TECHNICIAN SUMMARY REPORT\n")
-    report.write("-----------------------------------\n")
-    report.write(f"Total number of technicians: {total_techs}\n")
-    report.write(f"Average experience: {average_experience:.2f} years\n")
-    report.write(f"Technician with the longest name: {longest_name}\n")
-    report.write(f"Length of longest name: {longest_name_length} characters\n")
-    report.write("\nExperience categories:\n")
-    report.write(f"  Junior (<3 years): {junior}\n")
-    report.write(f"  Mid-level (3–6 years): {mid}\n")
-    report.write(f"  Senior (>6 years): {senior}\n")
-
-print("\nReport successfully generated in 'report.txt'.")
+print("\nAll changes have been successfully saved to staff.txt.")
