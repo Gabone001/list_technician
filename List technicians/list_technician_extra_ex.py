@@ -123,21 +123,42 @@ print("\nTotal number: ", len(names))
 # Exercise 7 - Filter by role.
 # >>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
+# search_role = input("\nEnter a job role to search for: ").strip()
+#
+# # Find all technicians matching that role
+# matched_names = []
+#
+# for name, role in zip(names, roles):
+#     if role.lower() == search_role.lower():
+#         matched_names.append((name))
+#
+# # Display results
+# if matched_names:
+#     print("\nTechnicians with the role:", search_role)
+#     print("--------------------------------------------------")
+#     for tech in matched_names:
+#         print(tech)
+# else:
+#     print("\nNo technicians found with that role.")
 
-search_role = input("\nEnter a job role to search for: ").strip()
+# >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+# Exercise 8 - Classifies the technicians by years of experience.
+# >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
-# Find all technicians matching that role
-matched_names = []
+junior_count = 0
+mid_count = 0
+senior_count = 0
 
-for name, role in zip(names, roles):
-    if role.lower() == search_role.lower():
-        matched_names.append((name))
+for years in years_experience:
+    if years < 3:
+        junior_count += 1
+    elif 3 <= years <= 6:
+        mid_count += 1
+    else:  # years > 6
+        senior_count += 1
 
-# Display results
-if matched_names:
-    print("\nTechnicians with the role:", search_role)
-    print("--------------------------------------------------")
-    for tech in matched_names:
-        print(tech)
-else:
-    print("\nNo technicians found with that role.")
+print("\nTechnician Experience Categories")
+print("--------------------------------")
+print(f"Junior (<3 years): {junior_count}")
+print(f"Mid-level (3–6 years): {mid_count}")
+print(f"Senior (>6 years): {senior_count}")
