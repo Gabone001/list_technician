@@ -6,21 +6,21 @@
 # LOAD DATA INTO LISTS
 # >>>>>>>>>>>>>>>>>>>>>>>>>
 
-names = []
-roles = []
-years_experience = []
-
-with open("staff.txt", "r") as file:
-    for line in file:
-        parts = line.strip().split(",")
-        names.append(parts[0].strip())
-        roles.append(parts[1].strip())
-        years_experience.append(int(parts[2].strip()))
-print("Names          | Roles           |Years Experience")
-print("--------------------------------------------------")
-for name, role, years in zip(names, roles, years_experience):
-  print(f"{name:<20} | {role:<28} | {years:>5}")
-print("\nTotal number: ", len(names))
+# names = []
+# roles = []
+# years_experience = []
+#
+# with open("staff.txt", "r") as file:
+#     for line in file:
+#         parts = line.strip().split(",")
+#         names.append(parts[0].strip())
+#         roles.append(parts[1].strip())
+#         years_experience.append(int(parts[2].strip()))
+# print("Names          | Roles           |Years Experience")
+# print("--------------------------------------------------")
+# for name, role, years in zip(names, roles, years_experience):
+#   print(f"{name:<20} | {role:<28} | {years:>5}")
+# print("\nTotal number: ", len(names))
 
 # # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 # # Exercise 2- ADD new technician
@@ -210,8 +210,146 @@ print("\nTotal number: ", len(names))
 # >>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 
-with open("staff.txt", "w") as file:
-    for name, role, years in zip(names, roles, years_experience):
-        file.write(f"{name}, {role}, {years}\n")
+# with open("staff.txt", "w") as file:
+#     for name, role, years in zip(names, roles, years_experience):
+#         file.write(f"{name}, {role}, {years}\n")
+#
+# print("\nAll changes have been successfully saved to staff.txt.")
 
-print("\nAll changes have been successfully saved to staff.txt.")
+# >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+# Exercise 11 - menu driven system.
+# >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+
+names = []
+roles = []
+years_experience = []
+filename = "staff.txt"
+
+# ================== LOAD FILE ==================
+with open(filename, "r") as file:
+    for line in file:
+        n, r, y = line.strip().split(",")
+        names.append(n.strip())
+        roles.append(r.strip())
+        years_experience.append(int(y.strip()))
+
+# ================== MENU LOOP ==================
+while True:
+    print("\n===== IT TECHNICIAN MANAGEMENT SYSTEM =====")
+    print("1. Add Technician")
+    print("2. Edit Technician")
+    print("3. Delete Technician")
+    print("4. View All")
+    print("5. Filter by Job Role")
+    print("6. Generate Report")
+    print("7. Exit")
+
+    option = input("Choose an option: ")
+
+    # ---------- ADD ----------
+    if option == "1":
+        name = input("Enter name: ").strip()
+        role = input("Enter role: ").strip()
+        years = int(input("Enter years of experience: "))
+
+        names.append(name)
+        roles.append(role)
+        years_experience.append(years)
+
+        print(f"\n{name} added successfully!")
+
+    # ---------- EDIT ----------
+    elif option == "2":
+        name = input("Enter technician name to edit: ").strip()
+
+        if name not in names:
+            print("Technician not found.")
+            continue
+
+        index = names.index(name)
+
+        print("\n1. Edit Role")
+        print("2. Edit Years Experience")
+        choice = input("Choose option: ")
+
+        if choice == "1":
+            new_role = input("Enter new role: ").strip()
+            roles[index] = new_role
+            print("Role updated.")
+        elif choice == "2":
+            new_years = int(input("Enter new years: "))
+            years_experience[index] = new_years
+            print("Experience updated.")
+        else:
+            print("Invalid option.")
+
+    # ---------- DELETE ----------
+    elif option == "3":
+        name = input("Enter technician name to delete: ").strip()
+
+        if name not in names:
+            print("Technician not found.")
+            continue
+
+        index = names.index(name)
+
+        del names[index]
+        del roles[index]
+        del years_experience[index]
+
+        print(f"{name} deleted successfully!")
+
+    # ---------- VIEW ALL ----------
+    elif option == "4":
+        print("\nNAME                 | ROLE                    | YEARS")
+        print("------------------------------------------------------------")
+        for n, r, y in zip(names, roles, years_experience):
+            print(f"{n:<20} | {r:<20} | {y:>3}")
+        print("\nTotal technicians:", len(names))
+
+    # ---------- FILTER ----------
+    elif option == "5":
+        role = input("Enter job role to filter by: ").strip()
+        print(f"\nTechnicians with role '{role}':")
+
+        found = False
+        for n, r in zip(names, roles):
+            if r.lower() == role.lower():
+                print(n)
+                found = True
+
+        if not found:
+            print("No technicians found.")
+
+    # ---------- REPORT ----------
+    elif option == "6":
+        total = len(names)
+        avg_exp = sum(years_experience) / total
+        longest = max(names, key=len)
+        length_longest = len(longest)
+
+        junior = sum(1 for y in years_experience if y < 3)
+        mid = sum(1 for y in years_experience if 3 <= y <= 6)
+        senior = sum(1 for y in years_experience if y > 6)
+
+        with open("report.txt", "w") as rep:
+            rep.write("IT Technicians Summary Report\n")
+            rep.write("-----------------------------------\n")
+            rep.write(f"Total technicians: {total}\n")
+            rep.write(f"Average experience: {avg_exp:.2f} years\n")
+            rep.write(f"Longest name: {longest} ({length_longest} chars)\n")
+            rep.write("\nExperience categories:\n")
+            rep.write(f"Junior (<3): {junior}\n")
+            rep.write(f"Mid-level (3–6): {mid}\n")
+            rep.write(f"Senior (>6): {senior}\n")
+
+        print("\nReport generated as 'report.txt'!")
+
+    # ---------- EXIT ----------
+    elif option == "7":
+        print("Goodbye!")
+        break
+
+    else:
+        print("Invalid option, try again.")
