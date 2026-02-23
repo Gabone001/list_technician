@@ -44,16 +44,58 @@ print("\nTotal number: ", len(names))
 # >>>>>>>>>>>>>>>>>>
 # Delete a technician
 # >>>>>>>>>>>>>>>>>>
-name = input("Enter a person that left: ").strip()
+# name = input("Enter a person that left: ").strip()
+#
+# if name not in  names:
+#         print("That name is not in the database. ")
+# else:
+#     index = names.index(name)
+#     del names[index]
+#     del roles[index]
+#     del years_experience[index]
+#     with open("staff.txt", "w") as file:
+#         for name, role, years in zip(names, roles, years_experience):
+#             file.write(f" {name}, {role}, {years} \n")
+#     print("Book deleted successfully. ")
 
-if name not in  names:
-        print("That name is not in the database. ")
+# # >>>>>>>>>>>>>>>>>>
+# # Update technician's details
+# # >>>>>>>>>>>>>>>>>>
+
+
+
+name = input("\nEnter technician's name: ").strip()
+
+if name not in names:
+    print("That name is not in the database.")
 else:
-    index = names.index(name)
-    del names[index]
-    del roles[index]
-    del years_experience[index]
+    index = names.index(name)   # <--- IMPORTANT
+
+    print("\nWhat would you like to update?")
+    print("1. Job Role")
+    print("2. Years of Experience")
+    choice = input("Choose (1/2): ")
+
+    if choice == "1":
+        new_role = input("Enter new job role: ")
+        roles[index] = new_role
+
+    elif choice == "2":
+        new_years = int(input("Enter new years of experience: "))
+        years_experience[index] = new_years
+
+    else:
+        print("Invalid option!")
+
+    # Save all lists back to file
     with open("staff.txt", "w") as file:
-        for name, role, years in zip(names, roles, years_experience):
-            file.write(f" {name}, {role}, {years} \n")
-    print("Book deleted successfully. ")
+        for n, r, y in zip(names, roles, years_experience):
+            file.write(f"{n},{r},{y}\n")
+
+    # Show updated record
+    print("\nUpdated Technician Record:")
+    print(f"Name: {names[index]}")
+    print(f"Role: {roles[index]}")
+    print(f"Experience: {years_experience[index]} years")
+
+
