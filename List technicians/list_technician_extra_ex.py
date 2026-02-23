@@ -112,9 +112,32 @@ print("\nTotal number: ", len(names))
 # Exercise 6- Find the longest name.
 # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
-longest_name = max(names, key=len)
-length = len(longest_name)
+# longest_name = max(names, key=len)
+# length = len(longest_name)
+#
+# print("Longest Technician Name Result: ")
+# print(f"Longest name: {longest_name}")
+# print(f"Number of characters: {length}")
 
-print("Longest Technician Name Result: ")
-print(f"Longest name: {longest_name}")
-print(f"Number of characters: {length}")
+# >>>>>>>>>>>>>>>>>>>>>>>>>>>>
+# Exercise 7 - Filter by role.
+# >>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+
+search_role = input("\nEnter a job role to search for: ").strip()
+
+# Find all technicians matching that role
+matched_names = []
+
+for name, role in zip(names, roles):
+    if role.lower() == search_role.lower():
+        matched_names.append((name))
+
+# Display results
+if matched_names:
+    print("\nTechnicians with the role:", search_role)
+    print("--------------------------------------------------")
+    for tech in matched_names:
+        print(tech)
+else:
+    print("\nNo technicians found with that role.")
