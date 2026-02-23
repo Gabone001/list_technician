@@ -145,20 +145,62 @@ print("\nTotal number: ", len(names))
 # Exercise 8 - Classifies the technicians by years of experience.
 # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
-junior_count = 0
-mid_count = 0
-senior_count = 0
+# junior_count = 0
+# mid_count = 0
+# senior_count = 0
+#
+# for years in years_experience:
+#     if years < 3:
+#         junior_count += 1
+#     elif 3 <= years <= 6:
+#         mid_count += 1
+#     else:  # years > 6
+#         senior_count += 1
+#
+# print("\nTechnician Experience Categories")
+# print("--------------------------------")
+# print(f"Junior (<3 years): {junior_count}")
+# print(f"Mid-level (3–6 years): {mid_count}")
+# print(f"Senior (>6 years): {senior_count}")
+
+# >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+# Exercise 9 - report generation.
+# >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+# 1. Total technicians
+total_techs = len(names)
+
+# 2. Average years of experience
+average_experience = sum(years_experience) / total_techs
+
+# 3. Longest technician name
+longest_name = max(names, key=len)
+longest_name_length = len(longest_name)
+
+# 4. Categorization counts
+junior = 0
+mid = 0
+senior = 0
 
 for years in years_experience:
     if years < 3:
-        junior_count += 1
+        junior += 1
     elif 3 <= years <= 6:
-        mid_count += 1
-    else:  # years > 6
-        senior_count += 1
+        mid += 1
+    else:
+        senior += 1
 
-print("\nTechnician Experience Categories")
-print("--------------------------------")
-print(f"Junior (<3 years): {junior_count}")
-print(f"Mid-level (3–6 years): {mid_count}")
-print(f"Senior (>6 years): {senior_count}")
+# 5. Write report to file
+with open("report.txt", "w") as report:
+    report.write("IT TECHNICIAN SUMMARY REPORT\n")
+    report.write("-----------------------------------\n")
+    report.write(f"Total number of technicians: {total_techs}\n")
+    report.write(f"Average experience: {average_experience:.2f} years\n")
+    report.write(f"Technician with the longest name: {longest_name}\n")
+    report.write(f"Length of longest name: {longest_name_length} characters\n")
+    report.write("\nExperience categories:\n")
+    report.write(f"  Junior (<3 years): {junior}\n")
+    report.write(f"  Mid-level (3–6 years): {mid}\n")
+    report.write(f"  Senior (>6 years): {senior}\n")
+
+print("\nReport successfully generated in 'report.txt'.")
