@@ -90,12 +90,12 @@ while True:
          for name, km in zip(owners, kms):
             if km < 5000:
                  status = "No Service Needed"
-             elif km <= 10000:
+            elif km <= 10000:
                  status = "Service Due Soon"
-             else:
+            else:
                  status = "Service Overdue"
 
-             print(f"{name:<25} {km:<13} {status}")
+            print(f"{name:<25} {km:<13} {status}")
 
 # >>>>>>>>>>>>
 # Create alert
