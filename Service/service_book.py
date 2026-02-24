@@ -113,13 +113,13 @@ while True:
 # Save & Exit
 # >>>>>>>>>>>
 
-#     elif choice == "6":
-#         with open("services.txt", "w") as file:
-#             for name, km in zip(owners, kms):
-#                 file.write(f"{name},{km}\n")
-#
-#         print("Data saved. Goodbye.")
-#         break
-#
-#     else:
-#         print("Invalid choice. Try again.")
+     elif choice == "6":
+         with open("services.txt", "w") as file:
+             for name, km in zip(owners, kms):
+                 file.write(f"{name},{km}\n")
+
+         print("Data saved. Goodbye.")
+         break
+
+     else:
+         print("Invalid choice. Try again.")
