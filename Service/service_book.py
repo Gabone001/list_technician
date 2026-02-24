@@ -52,20 +52,21 @@ while True:
 # >>>>>>>>>>>>>>>
 # Delete a record
 # >>>>>>>>>>>>>>>
-#     elif choice == "2":
-#         name = input("Enter owner name to delete: ")
-#         if name in owners:
-#             index = owners.index(name)
-#             deleted_name = owners.pop(index)
-#             deleted_km = kms.pop(index)
-#
-#             with open("deleted.txt", "a") as file:
-#                 file.write(f"{deleted_name},{deleted_km}\n")
-#
-#             print("Record deleted and stored in deleted.txt.")
-#         else:
-#             print("Owner not found.")
-#
+
+     elif choice == "2":
+         name = input("Enter owner name to delete: ")
+         if name in owners:
+             index = owners.index(name)
+             deleted_name = owners.pop(index)
+             deleted_km = kms.pop(index)
+
+             with open("deleted.txt", "a") as file:
+                 file.write(f"{deleted_name},{deleted_km}\n")
+
+             print("Record deleted and stored in deleted.txt.")
+         else:
+             print("Owner not found.")
+
 #     # -----------------------------------------
 #     # Add a record
 #     # -----------------------------------------
