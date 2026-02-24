@@ -1,3 +1,8 @@
+# service_book.py
+# gabriel mihail
+# service auto, create a menu with update, delete, add, display all, create service alert and exit
+
+
 # -----------------------------------------
 # Load data from services.txt
 # -----------------------------------------
@@ -16,19 +21,19 @@ except FileNotFoundError:
 
 
 
-# # -----------------------------------------
-# # Main Menu Loop
-# # -----------------------------------------
-#
-# while True:
-#     print("\nVehicle Service Management System")
-#     print("1. Update a service record")
-#     print("2. Delete a service record")
-#     print("3. Add a service record")
-#     print("4. Display all records")
-#     print("5. Create service alert")
-#     print("6. Save & Exit")
-#
+# -----------------------------------------
+# Main Menu Loop
+# -----------------------------------------
+
+while True:
+     print("\nVehicle Service Management System")
+     print("1. Update a service record")
+     print("2. Delete a service record")
+     print("3. Add a service record")
+     print("4. Display all records")
+     print("5. Create service alert")
+     print("6. Save & Exit")
+
 #     choice = input("Choose an option: ")
 #
 #     # -----------------------------------------
