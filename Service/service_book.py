@@ -39,6 +39,7 @@ while True:
 # >>>>>>>>>>>>>>>
 # Update a record
 # >>>>>>>>>>>>>>>
+
      if choice == "1":
          name = input("Enter owner name to update: ")
          if name in owners:
@@ -67,16 +68,17 @@ while True:
          else:
              print("Owner not found.")
 
-#     # -----------------------------------------
-#     # Add a record
-#     # -----------------------------------------
-#     elif choice == "3":
-#         name = input("Enter new owner name: ")
-#         km = int(input("Enter kilometres since last service: "))
-#         owners.append(name)
-#         kms.append(km)
-#         print("Record added.")
-#
+# >>>>>>>>>>>>
+# Add a record
+# >>>>>>>>>>>>
+
+     elif choice == "3":
+         name = input("Enter new owner name: ")
+         km = int(input("Enter kilometres since last service: "))
+         owners.append(name)
+         kms.append(km)
+         print("Record added.")
+
 #     # -----------------------------------------
 #     # Display all records
 #     # -----------------------------------------
