@@ -97,20 +97,22 @@ while True:
 
              print(f"{name:<25} {km:<13} {status}")
 
-#     # -----------------------------------------
-#     # Create alert
-#     # -----------------------------------------
-#     elif choice == "5":
-#         if len(kms) == 0:
-#             print("No records available.")
-#         else:
-#             max_km = max(kms)
-#             index = kms.index(max_km)
-#             print(f"ALERT: {owners[index]} needs servicing immediately!")
-#
-#     # -----------------------------------------
-#     # Save & Exit
-#     # -----------------------------------------
+# >>>>>>>>>>>>
+# Create alert
+# >>>>>>>>>>>>
+
+     elif choice == "5":
+         if len(kms) == 0:
+             print("No records available.")
+         else:
+             max_km = max(kms)
+             index = kms.index(max_km)
+             print(f"ALERT: {owners[index]} needs servicing immediately!")
+
+# >>>>>>>>>>>
+# Save & Exit
+# >>>>>>>>>>>
+
 #     elif choice == "6":
 #         with open("services.txt", "w") as file:
 #             for name, km in zip(owners, kms):
