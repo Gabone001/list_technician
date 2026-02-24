@@ -3,9 +3,9 @@
 # service auto, create a menu with update, delete, add, display all, create service alert and exit
 
 
-# -----------------------------------------
+# >>>>>>>>>>>>>>>>>>>>>>>>>>>
 # Load data from services.txt
-# -----------------------------------------
+# >>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 owners = []
 kms = []
@@ -21,9 +21,9 @@ except FileNotFoundError:
 
 
 
-# -----------------------------------------
+# >>>>>>>>>>>>>>
 # Main Menu Loop
-# -----------------------------------------
+# >>>>>>>>>>>>>>
 
 while True:
      print("\nVehicle Service Management System")
@@ -34,24 +34,24 @@ while True:
      print("5. Create service alert")
      print("6. Save & Exit")
 
-#     choice = input("Choose an option: ")
-#
-#     # -----------------------------------------
-#     # Update a record
-#     # -----------------------------------------
-#     if choice == "1":
-#         name = input("Enter owner name to update: ")
-#         if name in owners:
-#             index = owners.index(name)
-#             new_km = int(input("Enter new kilometres: "))
-#             kms[index] = new_km
-#             print("Record updated.")
-#         else:
-#             print("Owner not found.")
-#
-#     # -----------------------------------------
-#     # Delete a record
-#     # -----------------------------------------
+     choice = input("Choose an option: ")
+
+# >>>>>>>>>>>>>>>
+# Update a record
+# >>>>>>>>>>>>>>>
+     if choice == "1":
+         name = input("Enter owner name to update: ")
+         if name in owners:
+             index = owners.index(name)
+             new_km = int(input("Enter new kilometres: "))
+             kms[index] = new_km
+             print("Record updated.")
+         else:
+             print("Owner not found.")
+
+# >>>>>>>>>>>>>>>
+# Delete a record
+# >>>>>>>>>>>>>>>
 #     elif choice == "2":
 #         name = input("Enter owner name to delete: ")
 #         if name in owners:
