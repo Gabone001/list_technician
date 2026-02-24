@@ -79,23 +79,24 @@ while True:
          kms.append(km)
          print("Record added.")
 
-#     # -----------------------------------------
-#     # Display all records
-#     # -----------------------------------------
-#     elif choice == "4":
-#         print("\nOwner Name                 Kilometres     Service Status")
-#         print("------------------------------------------------------------")
-#
-#         for name, km in zip(owners, kms):
-#             if km < 5000:
-#                 status = "No Service Needed"
-#             elif km <= 10000:
-#                 status = "Service Due Soon"
-#             else:
-#                 status = "Service Overdue"
-#
-#             print(f"{name:<25} {km:<13} {status}")
-#
+# >>>>>>>>>>>>>>>>>>>
+# Display all records
+# >>>>>>>>>>>>>>>>>>>
+
+     elif choice == "4":
+         print("\nOwner Name                 Kilometres     Service Status")
+         print("------------------------------------------------------------")
+
+         for name, km in zip(owners, kms):
+            if km < 5000:
+                 status = "No Service Needed"
+             elif km <= 10000:
+                 status = "Service Due Soon"
+             else:
+                 status = "Service Overdue"
+
+             print(f"{name:<25} {km:<13} {status}")
+
 #     # -----------------------------------------
 #     # Create alert
 #     # -----------------------------------------
