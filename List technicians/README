@@ -1,0 +1,45 @@
+# IT Technician Management System
+
+This project is a command-line (CLI) application built in Python for managing a list of IT technicians.
+
+The system allows users to store, update, and analyze technician data, including names, job roles, and years of experience.
+
+---
+
+## 📌 Features
+
+- Add new technicians
+- Edit existing technician details
+- Delete technicians from the list
+- View all technicians in a formatted table
+- Filter technicians by job role
+- Generate a summary report
+- Save updated data to file
+
+---
+
+## 🛠 Technologies Used
+
+- Python
+- File handling (read/write operations)
+- Lists and basic data structures
+
+---
+
+## 📂 Files
+
+- `list_technician_extra_ex.py` – main application
+- `staff.txt` – data storage file
+- `report.txt` – generated summary report
+
+---
+
+## ▶️ How to Run
+
+1. Make sure `staff.txt` exists with data in the format:
+   Name, Role, YearsExperience
+
+2. Run the script:
+```bash
+python list_technician_extra_ex.py
+``
